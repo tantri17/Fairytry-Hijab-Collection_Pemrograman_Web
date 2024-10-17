@@ -1,0 +1,46 @@
+<head>
+       <meta charset="UTF-8">
+       <title>Penjumlahan</title>
+       <link rel="stylesheet" href="style.css">
+   </head>
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+<div class="container">
+    <h2>Penjumlahan</h2>
+    <input type="number" id="bil1" placeholder="Bilangan pertama" value="">
+    <input type="number" id="bil2" placeholder="Bilangan kedua" value="">
+    <div>
+        <button class="btn-jumlah" onclick="jumlahkan()">Jumlahkan</button>
+        <button class="btn-reset" onclick="reset()">Reset</button>
+    </div>
+    <div class="hasil">
+        Hasil: <span id="hasil"></span>
+    </div>
+</div>
+
+<script>
+    function jumlahkan() {
+        var bil1 = parseInt(document.getElementById('bil1').value);
+        var bil2 = parseInt(document.getElementById('bil2').value);
+        var hasil = bil1 + bil2;
+        document.getElementById('hasil').innerText = hasil;
+    }
+
+    function reset() {
+        document.getElementById('bil1').value = '';
+        document.getElementById('bil2').value = '';
+        document.getElementById('hasil').innerText = '0';
+    }
+</script>
+
+</body>
+</html>

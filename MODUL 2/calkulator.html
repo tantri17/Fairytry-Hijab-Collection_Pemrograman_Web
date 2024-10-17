@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator Application</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #C6A992;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #2e293f;
+            border-radius: 30px;
+            padding: 30px;
+            width: 280px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .userInput {
+            height: 180px;
+            background-color: #4c455a;
+            color: white;
+            font-size: 2em;
+            text-align: right;
+            border-radius: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .userEntry {
+            margin: 10;
+            padding: 10;
+            font-size: 1.5em;
+        }
+
+        .finalCalc {
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+            opacity: 0.7;
+        }
+
+        .calcButtons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        button {
+            height: 60px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .operator {
+            background-color: #675d80;
+        }
+
+        .number {
+            background-color: #4b4764;
+        }
+
+        .special {
+            background-color: #ff6666;
+        }
+
+        .equal {
+            background-color: #4caf50;
+            grid-column: span 2;
+        }
+
+        .special:hover, .equal:hover, .operator:hover, .number:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="userInput">
+            <p class="finalCalc"></p>
+            <p class="userEntry"></p>
+        </div>
+
+        <div class="calcButtons">
+            <button class="special">AC</button>
+            <button class="special">DEL</button>
+            <button class="special">√</button>
+            <button class="operator">÷</button>
+
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="operator">×</button>
+
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operator">-</button> 
+
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operator">+</button>
+
+            <button class="number">0</button>
+            <button class="number">.</button>
+            <button class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        let $buttons = document.querySelectorAll("button");
+        let ui = document.querySelector(".userEntry");
+        let finalCalc = document.querySelector(".finalCalc");
+        let valOne = "";
+        let valTwo = "";
+        let operator = "";
+        let finalAnswer = 0;
+
+        [...$buttons].map(x => {
+            x.addEventListener("click", function () {
+                switch (this.innerHTML) {
+                    case "AC":
+                        clearDisplay();
+                        break;
+                    case "DEL":
+                        removeNumber();
+                        break;
+                    case "√":
+                        calculateSquareRoot();
+                        break;
+                    case "=":
+                        makeCalculation();
+                        break;
+                    case "+":
+                    case "-":
+                    case "×":
+                    case "÷":
+                        storeOperator(this.innerHTML);
+                        break;
+                    default:
+                        appendNumber(this.innerText);
+                        break;
+                }
+            });
+        });
+
+        function clearDisplay() {
+            ui.textContent = "";
+            finalCalc.textContent = "";
+            valOne = "";
+            valTwo = "";
+            operator = "";
+        }
+
+        function removeNumber() {
+            if (operator === "") {
+                valOne = valOne.slice(0, -1);
+                ui.textContent = valOne;
+            } else {
+                valTwo = valTwo.slice(0, -1);
+                ui.textContent = valTwo;
+            }
+        }
+
+        function appendNumber(number) {
+            if (operator === "") {
+                valOne += number;
+                ui.textContent = valOne;
+            } else {
+                valTwo += number;
+                ui.textContent = valTwo;
+            }
+        }
+
+        function storeOperator(op) {
+            if (valOne === "") return;
+            operator = op;
+            ui.textContent = "";
+            finalCalc.textContent = valOne + " " + operator;
+        }
+
+        function calculateSquareRoot() {
+            let number = parseFloat(valOne);
+            if (number < 0) {
+                alert("Tidak dapat menghitung akar kuadrat dari angka negatif!");
+                return;
+            }
+            finalAnswer = Math.sqrt(number);
+            ui.textContent = Math.round(finalAnswer); // Membulatkan hasil
+            finalCalc.textContent = "√(" + number + ") = " + Math.round(finalAnswer);
+            valOne = "";
+            valTwo = "";
+            operator = "";
+        }
+
+        function makeCalculation() {
+            if (valOne === "" || valTwo === "" || operator === "") return;
+
+            let expression = `${valOne} ${operator} ${valTwo}`;
+            finalAnswer = eval(expression.replace("×", "*").replace("÷", "/"));
+            finalCalc.textContent = expression + " =";
+            ui.textContent = Math.round(finalAnswer); // Membulatkan hasil
+
+            valOne = Math.round(finalAnswer); // Simpan hasil untuk operasi selanjutnya
+            valTwo = "";
+            operator = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fairytry Hijab Collection</title>
+    <style>
+        
+        body {
+            font-family: 'Poppins', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #FAF3E0; 
+        }
+
+        header {
+            background-color: #C6A992; 
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #40342E; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #40342E; 
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #EDE0D0;
+            color: #40342E;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 16px;
+            border: 1px solid #C6A992; 
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #D6C4B5; 
+        }
+
+       
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 20px;
+            background-color: #F0E8D5; 
+            position: relative;
+        }
+
+        .main-content img {
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        .content-text {
+            max-width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .content-text h1 {
+            font-size: 40px;
+            color: #70584B; 
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .content-text p {
+            font-size: 18px;
+            color: #40342E; 
+            margin-bottom: 30px;
+        }
+
+        .shop-btn {
+            background-color: #B79B84; 
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 18px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .shop-btn:hover {
+            background-color: #A88C74; 
+        }
+
+       
+        .welcome-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #C6A992; 
+            color: white;
+            position: relative;
+        }
+
+        .welcome-section h2 {
+            font-size: 32px;
+            color: #40342E; 
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .welcome-section p {
+            font-size: 17px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            color: #40342E; 
+        }
+
+        .welcome-section img {
+            width: 217px;
+            height: RIGHT;
+            border-radius: 50%;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+
+        
+        .favorite-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #F0E8D5; 
+        }
+
+        .favorite-section h2 {
+            font-size: 30px;
+            color: #70584B; 
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .favorite-section p {
+            font-size: 18px;
+            color: #70584B; 
+            margin-bottom: 30px;
+        }
+
+        .bestseller-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .bestseller-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .bestseller-item img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .bestseller-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .bestseller-btn {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #B79B84; 
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .bestseller-btn:hover {
+            background-color: #A88C74;
+        }
+
+        footer {
+            background-color: #C6A992; 
+            padding: 30px;
+            text-align: center;
+            color: #40342E; 
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="asset/logo1.jpg" alt="Fairytry Logo">
+            <h1>FAIRYTRY</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Collection</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="#" class="btn">Login</a>
+            <a href="#" class="btn">Sign up</a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <img src="asset/cover.jpg" alt="Hijab Collection">
+        <div class="content-text">
+            <h1>Fairytry.......</h1>
+            <h1>Elegant Modern Hijab Collection</h1>
+            <p>Explore the collection of modern, elegant, and modest hijab styles that suit every occasion and every style.</p>
+            <a href="#" class="shop-btn">Shop All</a>
+        </div>
+    </div>
+
+  
+    <section class="welcome-section">
+        <h2>Welcome to FAIRYTRY</h2>
+        <p>Discover Timeless Elegance and Modern Hijab Fashion</p>
+        <p>Temukan Keanggunan Abadi dan Fashion Hijab Modern
+            Di FAIRYTRY, kami percaya bahwa fashion adalah bentuk ekspresi diri, menggabungkan kesederhanaan dengan gaya. Koleksi eksklusif kami, termasuk fashion hijab yang menawan, dirancang untuk mereka yang merangkul keunikan dengan anggun dan penuh gaya. Jelajahi karya-karya kami yang luarbiasa, menghadirkan perpaduan sempurna antara kesederhanaan, keanggunan, dan inovasi.
+            
+            Jelajahi Koleksi Hijab Terbaru Kami!</p>
+       
+             <img src="asset/foto4.jpg" alt="Person Image">
+    </div>
+    <a href="#" class="bestseller-btn">Shop Now</a>
+</section>
+
+
+    
+    <section class="favorite-section">
+        <h2>Your Favorite</h2>
+        <p>Our Bestseller</p>
+        <div class="bestseller-container">
+            <div class="bestseller-item">
+                <img src="asset/foto2.jpg" alt="Bestseller 1">
+            </div>
+            <div class="bestseller-item">
+                <img src="asset/foto1.jpg" alt="Bestseller 2">
+            </div>
+            <div class="bestseller-item">
+                <img src="asset/foto3.jpg" alt="Bestseller 3">
+            </div>
+        </div>
+    </div>
+    <a href="#" class="bestseller-btn">Shop Now</a>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 Fairytry Hijab Collection - ig: @fairytry_ft - Contact Us: +6285852256044.</p>
+    </footer>
+</body>
+</html>
